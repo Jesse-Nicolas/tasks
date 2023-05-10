@@ -1,11 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+// npm modules
+import { useState } from 'react'
+
+// pages
+
+//components
+import NavBar from './components/NavBar/NavBar'
+
+// services
+import * as authService from './services/authService'
 
 function App() {
+  const [user, setUser] = useState(authService.getUser())
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
