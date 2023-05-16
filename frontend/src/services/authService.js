@@ -59,7 +59,7 @@ async function login(credentials) {
 
 async function changePassword(credentials) {
   try {
-    const res = await fetch(`${BASE_URL}/change-password`, {
+    const res = await fetch(`${BASE_URL}password/change/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -73,6 +73,7 @@ async function changePassword(credentials) {
       tokenService.setToken(json.token)
     }
     if (json.err) {
+      console.log(json.er)
       throw new Error(json.err)
     }
   } catch (err) {

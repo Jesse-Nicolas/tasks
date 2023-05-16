@@ -6,9 +6,9 @@ import * as authService from '../../services/authService'
 const ChangePasswordForm = props => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    pw: '',
-    newPw: '',
-    newPwConf: '',
+    old_password: '',
+    new_password1: '',
+    new_password2: '',
   })
 
   const handleChange = e => {
@@ -30,10 +30,10 @@ const ChangePasswordForm = props => {
     }
   }
 
-  const { pw, newPw, newPwConf } = formData
+  const { old_password, new_password1, new_password2 } = formData
 
   const isFormInvalid = () => {
-    return !(pw && newPw && newPw === newPwConf)
+    return !(old_password && new_password1 && new_password1 === new_password2)
   }
 
   return (
@@ -50,8 +50,8 @@ const ChangePasswordForm = props => {
           type="password"
           autoComplete="off"
           id="password"
-          value={pw}
-          name="pw"
+          value={old_password}
+          name="old_password"
           onChange={handleChange}
         />
       </div>
@@ -63,8 +63,8 @@ const ChangePasswordForm = props => {
           type="password"
           autoComplete="off"
           id="newPassword"
-          value={newPw}
-          name="newPw"
+          value={new_password1}
+          name="new_password1"
           onChange={handleChange}
         />
       </div>
@@ -76,8 +76,8 @@ const ChangePasswordForm = props => {
           type="password"
           autoComplete="off"
           id="newPasswordConf"
-          value={newPwConf}
-          name="newPwConf"
+          value={new_password2}
+          name="new_password2"
           onChange={handleChange}
         />
       </div>
