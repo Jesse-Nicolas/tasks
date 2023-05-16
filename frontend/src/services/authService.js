@@ -1,6 +1,6 @@
 import * as tokenService from './tokenService'
 import { addPhoto as addProfilePhoto } from './profileService'
-const BASE_URL = `${process.env.DJANGO_APP_BACK_END_SERVER}/auth`
+const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER}auth/`
 
 async function signup(user, photo) {
   try {
@@ -39,13 +39,13 @@ function logout() {
 
 async function login(credentials) {
   try {
-    const res = await fetch(`${BASE_URL}/login`, {
+    const res = await fetch(`${BASE_URL}login/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
     })
     const json = await res.json()
-    console.log(json)
+    console.log('authService.js login() response:', json)
     if (json.access) {
       tokenService.setToken(json.access)
     }

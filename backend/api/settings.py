@@ -69,10 +69,16 @@ REST_FRAMEWORK = {
 }
 
 
+SIMPLE_JWT = {
+    "TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.MyTokenObtainPairSerializer",
+}
+
 REST_AUTH = {
     'USE_JWT': True,
     'JWT_AUTH_COOKIE': 'my-app-auth',
     'JWT_AUTH_REFRESH_COOKIE': 'my-refresh-token',
+    'JWT_TOKEN_CLAIMS_SERIALIZER': 'api.propertyman.serializers.MyTokenObtainPairSerializer',
+
 }
 
 
