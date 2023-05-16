@@ -142,11 +142,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    env('REACT_FRONT_END_URL'),
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
+    env('REACT_FRONT_END_URL'),
 ]
 
 

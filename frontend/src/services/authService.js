@@ -1,6 +1,6 @@
 import * as tokenService from './tokenService'
 import { addPhoto as addProfilePhoto } from './profileService'
-const BASE_URL = `${process.env.DJANGO_APP_BACK_END_SERVER}/api/auth`
+const BASE_URL = `${process.env.DJANGO_APP_BACK_END_SERVER}/auth`
 
 async function signup(user, photo) {
   try {
@@ -11,6 +11,7 @@ async function signup(user, photo) {
     })
     const json = await res.json()
     if (json.err) {
+      console.log(json.err)
       throw new Error(json.err)
     } else if (json.token) {
       tokenService.setToken(json.token)
@@ -44,8 +45,9 @@ async function login(credentials) {
       body: JSON.stringify(credentials),
     })
     const json = await res.json()
-    if (json.token) {
-      tokenService.setToken(json.token)
+    console.log(json)
+    if (json.access) {
+      tokenService.setToken(json.access)
     }
     if (json.err) {
       throw new Error(json.err)

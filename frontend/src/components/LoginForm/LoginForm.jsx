@@ -5,8 +5,8 @@ import * as authService from '../../services/authService'
 
 const LoginForm = props => {
   const [formData, setFormData] = useState({
-    email: '',
-    pw: '',
+    username: '',
+    password: '',
   })
   const navigate = useNavigate()
 
@@ -33,13 +33,13 @@ const LoginForm = props => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
+        <label htmlFor="username" className={styles.label}>username</label>
         <input
           type="text"
           autoComplete="off"
-          id="email"
-          value={formData.email}
-          name="email"
+          id="username"
+          value={formData.username}
+          name="username"
           onChange={handleChange}
         />
       </div>
@@ -49,8 +49,8 @@ const LoginForm = props => {
           type="password"
           autoComplete="off"
           id="password"
-          value={formData.pw}
-          name="pw"
+          value={formData.password}
+          name="password"
           onChange={handleChange}
         />
       </div>
