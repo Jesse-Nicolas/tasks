@@ -6,10 +6,10 @@ import * as authService from '../../services/authService'
 const SignupForm = props => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    name: '',
+    username: '',
     email: '',
-    password: '',
-    passwordConf: '',
+    password1: '',
+    password2: '',
   })
   const [photoData, setPhotoData] = useState({})
 
@@ -36,10 +36,10 @@ const SignupForm = props => {
     }
   }
 
-  const { name, email, password, passwordConf } = formData
+  const { username, email, password1, password2 } = formData
 
   const isFormInvalid = () => {
-    return !(name && email && password && password === passwordConf)
+    return !(username && email && password1 && password1 === password2)
   }
 
   return (
@@ -49,13 +49,13 @@ const SignupForm = props => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
+        <label htmlFor="username" className={styles.label}>userame</label>
         <input
           type="text"
           autoComplete="off"
           id="name"
-          value={name}
-          name="name"
+          value={username}
+          name="username"
           onChange={handleChange}
         />
       </div>
@@ -71,13 +71,13 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
+        <label htmlFor="password1" className={styles.label}>Password</label>
         <input
           type="password"
           autoComplete="off"
           id="password"
-          value={password}
-          name="password"
+          value={password1}
+          name="password1"
           onChange={handleChange}
         />
       </div>
@@ -89,8 +89,8 @@ const SignupForm = props => {
           type="password"
           autoComplete="off"
           id="confirm"
-          value={passwordConf}
-          name="passwordConf"
+          value={password2}
+          name="password2"
           onChange={handleChange}
         />
       </div>

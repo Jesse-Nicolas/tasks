@@ -4,7 +4,7 @@ const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER}auth/`
 
 async function signup(user, photo) {
   try {
-    const res = await fetch(`${BASE_URL}/signup`, {
+    const res = await fetch(`${BASE_URL}registration/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user),
