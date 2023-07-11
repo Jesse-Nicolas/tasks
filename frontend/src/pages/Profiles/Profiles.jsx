@@ -18,7 +18,10 @@ const Profiles = () => {
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-            <p key={profile._id}>{profile.name}</p>
+            <div key={profile._id} class='user-list-card'>
+              <h5>{profile.username}</h5>
+              <p>ID:{profile.id}</p>
+            </div>
           )}
         </>
       :
@@ -27,5 +30,5 @@ const Profiles = () => {
     </>
   )
 }
- 
+
 export default Profiles

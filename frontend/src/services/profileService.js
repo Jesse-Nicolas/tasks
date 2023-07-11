@@ -1,6 +1,6 @@
 import * as tokenService from './tokenService'
 
-const BASE_URL = `${process.env.DJANGO_APP_BACK_END_SERVER}/api/profiles`
+const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER}api/users`
 
 async function getAllProfiles() {
   const res = await fetch(BASE_URL, {

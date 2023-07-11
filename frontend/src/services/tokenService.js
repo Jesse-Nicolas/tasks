@@ -6,6 +6,7 @@ function setToken(token) {
 
 function getToken() {
   let token = localStorage.getItem('token')
+  console.log(token)
   if (token) {
     const payload = jwt_decode(token)
     if (payload.exp < Date.now() / 1000) {
